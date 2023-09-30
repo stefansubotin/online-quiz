@@ -5,7 +5,7 @@ import { TestModule } from './test.module';
 import { TestController } from './test.controller';
 
 @Module({
-  imports: [TestModule],
+  imports: [],
   controllers: [HomepageController, TestController],
   providers: [HomepageService],
 })
