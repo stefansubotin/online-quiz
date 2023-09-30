@@ -24,11 +24,12 @@
     <button onclick="onButtonClick()">Test</button>
     <script>
       function onButtonClick(){
+        var mes = document.getElementById("inputTest").value;
   	    fetch("https://filthy-sweatsuit-boa.cyclic.cloud/update", {
           method: "POST",
           body: JSON.stringify({
             id: 1,
-            message: document.getElementById("inputTest").value
+            message: mes
           }),
           headers: {
             "Content-type": "application/json; charset=UTF-8"
