@@ -12,5 +12,6 @@ import { Module } from '@nestjs/common';
         TestController,],
     providers: [
         TestService,],
+    exports: [TestController,],
 })
 export class TestModule { }

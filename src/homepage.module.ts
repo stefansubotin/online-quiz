@@ -6,8 +6,8 @@ import { TestController } from './test.controller';
 import { TestService } from './test.service';
 
 @Module({
-  imports: [],
-  controllers: [HomepageController, TestController],
-  providers: [HomepageService, TestService],
+  imports: [TestModule],
+  controllers: [HomepageController,],
+  providers: [HomepageService,],
 })
 export class HomepageModule {}
