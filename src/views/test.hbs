@@ -26,11 +26,6 @@
     <button>Nada</button>
     <script>
       function onButtonTestInputClick(){
-        onButtonClick("testInput");
-      };
-    </script>
-    <script>
-      function onButtonClick(string eleId){
         var url = window.location.href;
         var urlArray = url.split('/');
         var cod = 'my-channel';//urlArray[urlArray.length - 1];
@@ -38,7 +33,7 @@
   	    fetch("https://filthy-sweatsuit-boa.cyclic.cloud/update", {
           method: "POST",
           body: JSON.stringify({
-            id: eleId,
+            id: "testInput",
             code: cod,
             message: mes
           }),
