@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Render } from '@nestjs/common';
 import { HomepageService } from './homepage.service';
 import { NestFactory } from '@nestjs/core';
 import { TestModule } from './test.module';
@@ -8,7 +8,8 @@ export class HomepageController {
   constructor(private readonly appService: HomepageService) {}
 
   @Get()
-  getHomepage(): string {
-    return this.appService.getHomepage();
+  @Render('homepage')
+  getHomepage() {
+    return { message: 'Hello Testing!'};
   }
 }
