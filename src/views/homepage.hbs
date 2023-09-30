@@ -24,7 +24,16 @@
     <button onclick="onButtonClick()">Test</button>
     <script>
       function onButtonClick(){
-  	    document.getElementById("divTest").innerHTML = document.getElementById("testInput").value;
+  	    fetch("https://filthy-sweatsuit-boa.cyclic.cloud/update", {
+          method: "POST",
+          body: JSON.stringify({
+            id: 1,
+            message: document.getElementById("inputTest").value
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
       };
     </script>
   </body>
