@@ -10,6 +10,6 @@ export class HomepageController {
   @Get()
   @Render('test')
   getHomepage() {
-    return { message: 'Hello Testing!'};
+    return { message: 'Hello\nTesting!'};
   }
 }

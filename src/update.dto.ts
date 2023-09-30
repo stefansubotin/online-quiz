@@ -1,4 +1,5 @@
 export class UpdateDto {
-    id: number;
+    id: string;
+    code: string;
     message: string;
 }

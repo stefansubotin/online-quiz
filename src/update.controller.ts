@@ -19,7 +19,8 @@ export class UpdateController {
             useTLS: true
         });
 
-        pusher.trigger("my-channel", "my-event", {
+        pusher.trigger(update.code, "my-event", {
+            id: update.id,
             message: update.message
         });
     }
