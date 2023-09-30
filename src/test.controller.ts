@@ -9,6 +9,7 @@ import { TestService } from './test.service';
 export class TestController {
     constructor(private readonly appService: TestService) {}
 
+    @Get()
     getTest(): string {
         return "Test";
     }
