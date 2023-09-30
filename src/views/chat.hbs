@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>App</title>
+    <title>Chat</title>
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <script>
       // Enable pusher logging - don't include this in production
@@ -14,16 +14,16 @@
 
       var channel = pusher.subscribe('my-channel');
       channel.bind('my-event', function(data) {
-        document.getElementById("divTest").innerHTML = data.message;
+        var history = document.getElementById("chatDiv").innerHTML;
+
       });
     </script>
   </head>
   <body>
-    <div>{{message}}</div><br>
-    <div id="divTest">Hello</div><br><br>
+    <div>Hello </div><div id="userDiv">{{user}}</div><br>
     <input type="text" id="testInput" name="testInput"><br><br>
     <button onclick="onButtonTestInputClick()">Test</button>
-    <button>Nada</button>
+    <div id="chatDiv"></div>
     <script>
       function onButtonTestInputClick(){
         var url = window.location.href;
