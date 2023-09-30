@@ -8,9 +8,8 @@ export class HomepageController {
   constructor(private readonly appService: HomepageService) {}
 
   @Get()
-  @Render('homepage')
+  @Render('test')
   getHomepage() {
-    
     return { message: 'Hello Testing!'};
   }
 }
