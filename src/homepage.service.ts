@@ -12,7 +12,7 @@ export class HomepageService {
         <link rel="icon" type="image/x-icon" href="favicon.ico">
       </head>
       <body>
-        <app-root></app-root>
+        <div>Homepage</div>
       </body>
     </html>`;
   }
