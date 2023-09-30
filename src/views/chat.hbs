@@ -15,7 +15,11 @@
       var channel = pusher.subscribe('my-channel');
       channel.bind('my-event', function(data) {
         var history = document.getElementById("chatDiv").innerHTML;
-        history = history + "<br>" + data.user + ": " + data.message;
+        var newLine = "<br>" + data.user + ":";
+        for (int i = newLine.length; i < 40){
+          newLine = newLine + "&nbsp;";
+        }
+        history = history + newLine + data.message;
         document.getElementById("chatDiv").innerHTML = history;
       });
     </script>
