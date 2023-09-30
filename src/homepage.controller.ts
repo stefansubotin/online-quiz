@@ -6,7 +6,7 @@ export class HomepageController {
   constructor(private readonly appService: HomepageService) {}
 
   @Get()
-  getHello(): HTMLElement {
-    return this.appService.getHello();
+  getHello(): string {
+    return this.appService.getHomepage();
   }
 }
