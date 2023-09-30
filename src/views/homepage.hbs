@@ -5,7 +5,6 @@
     <title>App</title>
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <script>
-
       // Enable pusher logging - don't include this in production
       Pusher.logToConsole = true;
 
@@ -17,7 +16,13 @@
       channel.bind('my-event', function(data) {
         document.getElementById("divTest").innerHTML = JSON.stringify(data);
       });
-
+    </script>
+  </head>
+  <body>
+    <div id="divTest">Hello</div><br><br>
+    <input type="text" id="testInput" name="testInput"><br><br>
+    <button onclick="onButtonClick()">Test</button>
+    <script>
       function onButtonClick(){
   	    var pusher = new Pusher({
           appId: "1679697",
@@ -26,16 +31,9 @@
           cluster: "eu",
           useTLS: true
         });
-        var inp = document.getElementById("testInput");
         pusher.trigger("my-channel", "my-event", {
-          message: inp.value;
+          message: document.getElementById("testInput").value
         });
-      };
     </script>
-  </head>
-  <body>
-    <div id="divTest">Hello</div><br><br>
-    <input type="text" id="testInput" name="testInput"><br><br>
-    <button onclick="onButtonClick()">Test</button>
   </body>
 </html>
