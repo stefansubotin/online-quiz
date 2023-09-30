@@ -24,7 +24,7 @@
     <button onclick="onButtonClick()">Test</button>
     <script>
       function onButtonClick(){
-        var mes = document.getElementById("inputTest").value;
+        var mes = document.getElementById("testInput").value;
   	    fetch("https://filthy-sweatsuit-boa.cyclic.cloud/update", {
           method: "POST",
           body: JSON.stringify({
