@@ -6,7 +6,7 @@ import { TestController } from './test.controller';
 
 @Module({
   imports: [TestModule],
-  controllers: [HomepageController],
+  controllers: [HomepageController, TestController],
   providers: [HomepageService],
 })
 export class HomepageModule {}
