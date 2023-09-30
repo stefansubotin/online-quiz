@@ -3,12 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <title>App</title>
-  </head>
-  <body>
-    <div id="divTest">Hello</div><br><br>
-    <input type="text" id="testInput" name="testInput"><br><br>
-    <button onclick="onButtonClick()">Test</button>
-
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <script>
 
@@ -25,20 +19,23 @@
       });
 
       function onButtonClick(){
-        const Pusher = require("pusher");
-
-  	    const pusher = new Pusher({
+  	    var pusher = new Pusher({
           appId: "1679697",
           key: "cefecd31795a4e419288",
           secret: "69192cf5d43c8f457530",
           cluster: "eu",
           useTLS: true
         });
-        const inp = document.getElementById("testInput");
+        var inp = document.getElementById("testInput");
         pusher.trigger("my-channel", "my-event", {
           message: inp.value;
         });
       };
     </script>
+  </head>
+  <body>
+    <div id="divTest">Hello</div><br><br>
+    <input type="text" id="testInput" name="testInput"><br><br>
+    <button onclick="onButtonClick()">Test</button>
   </body>
 </html>
