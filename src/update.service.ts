@@ -20,6 +20,7 @@ export class UpdateService {
 
         pusher.trigger(update.code, "my-event", {
             id: update.id,
+            user: update.user,
             message: update.message
         });
     }
