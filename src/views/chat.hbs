@@ -16,7 +16,7 @@
       channel.bind('my-event', function(data) {
         var history = document.getElementById("chatDiv").innerHTML;
         var newLine = "<br>" + data.user + ":";
-        for (int i = newLine.length; i < 40){
+        for (let i = newLine.length; i < 40; i++){
           newLine = newLine + "&nbsp;";
         }
         history = history + newLine + data.message;
