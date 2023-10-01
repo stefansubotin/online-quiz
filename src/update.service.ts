@@ -18,7 +18,7 @@ export class UpdateService {
             useTLS: true
         });
 
-        pusher.trigger(update.code, "my-event", {
+        pusher.trigger(update.code, update.event, {
             id: update.id,
             user: update.user,
             message: update.message
