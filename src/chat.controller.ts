@@ -8,6 +8,7 @@ import { Controller, Get, Param, Render } from '@nestjs/common';
 export class ChatController { 
     @Get(':room')
     getChat(@Param() params: any) {
-     ;
+    var html = require('views/chat.html');
+    return html;
   }
 }
