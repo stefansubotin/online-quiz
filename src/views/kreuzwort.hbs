@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Kreuzwort</title>
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script>
+        var pusher = new Pusher('cefecd31795a4e419288', {
+        cluster: 'eu'
+        });
+        var url = window.location.href;
+        var urlArray = url.split('/');
+        var cod = urlArray[urlArray.length - 2];
+        var channelChat = pusher.subscribe(cod);
+        channelChat.bind('chat', function(data) {
+            var history = document.getElementById("chatDiv").innerHTML;
+            var newLine = "<br>" + data.user + ":&nbsp;&nbsp;" + data.message;
+            history = history + newLine;
+            document.getElementById("chatDiv").innerHTML = history;
+        });
+        var user = urlArray[urlArray.length - 1];
+        channel.bind(user, function(data) {
+            alert(data.message);
+        });
+    </script>
+</head>
+<body>
+    <div name="Chat">
+        <p>Hello! Please input a handle before typing an message!</p>
+        <label for="userName">Handle: </label>
+        <input type="text" id="userName" name="userName"><br>
+        <p>Input your chat message here</p>
+        <input type="text" id="messageInput" name="messageInput">
+        <button onclick="onSendClick()">Send</button>
+        <div id="chatDiv"></div>
+        <script>
+            function onSendClick(){
+                var url = window.location.href;
+                var urlArray = url.split('/');
+                var cod = urlArray[urlArray.length - 1];
+                var mes = document.getElementById("messageInput").value;
+                var use = document.getElementById("userName").value;
+                fetch("https://filthy-sweatsuit-boa.cyclic.cloud/update", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        id: "messageInput",
+                        code: cod,
+                        event: "chat",
+                        user: use,
+                        message: mes
+                    }),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                })
+            };
+        </script>
+    <div>
+</body>
+</html>

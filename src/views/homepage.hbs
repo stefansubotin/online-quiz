@@ -7,13 +7,26 @@
     <body>
         <p>Hello new User</p>
         <p>Please input your Chatroomcode</p>
-        <label for="roomInput">Roomcode: </label>
-        <input type="text" id="roomInput" name="roomInput"><br><br>
-        <button onClick="gotoChatroom()">To Chat</button>
+        <label for="chatroomInput">Roomcode Chat: </label>
+        <input type="text" id="chatroomInput" name="chatroomInput"><br><br>
+        <button onClick="gotoChatroom()">To Chat</button><br><br><br>
         <script>
             function gotoChatroom(){
-                var room = document.getElementById("roomInput").value;
+                var room = document.getElementById("chatroomInput").value;
                 var url = "https://filthy-sweatsuit-boa.cyclic.cloud/chat/" + room;
+                window.location.href = url;
+            }
+        </script>
+        <label for="kreuzwortInput">Roomcode Quiz: </label>
+        <input type="text" id="kreuzwortInput" name="kreuzwortInput"><br>
+        <label for="kreuzwortUser">Username Quiz: </label>
+        <input type="text" id="kreuzwortUser" name="kreuzwortUser"><br><br>
+        <button onClick="gotoQuizroom()">To Chat</button><br><br><br>
+        <script>
+            function gotoQuizroom(){
+                var room = document.getElementById("kreuzwortInput").value;
+                var user = document.getElementById("kreuzwortUser").value;
+                var url = "https://filthy-sweatsuit-boa.cyclic.cloud/kreuzwort/" + room + "/" + user;
                 window.location.href = url;
             }
         </script>
