@@ -1,6 +1,5 @@
 import { Controller, Get, Render } from '@nestjs/common';
 import { HomepageService } from './homepage.service';
-import { NestFactory } from '@nestjs/core';
 
 @Controller()
 export class HomepageController {
