@@ -5,10 +5,11 @@ import { UpdateController } from './update.controller';
 import { UpdateService } from './update.service';
 import { ChatController } from './chat.controller';
 import { ChatService } from './chat.service';
+import { KreuzwortController } from './kreuzwort.controller';
 
 @Module({
   imports: [],
-  controllers: [HomepageController, UpdateController, ChatController],
+  controllers: [HomepageController, UpdateController, ChatController, KreuzwortController],
   providers: [HomepageService, UpdateService, ChatService],
 })
 export class BaseModule {}

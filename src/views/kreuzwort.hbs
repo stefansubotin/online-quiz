@@ -22,6 +22,19 @@
         channel.bind(user, function(data) {
             alert(data.message);
         });
+        fetch("https://filthy-sweatsuit-boa.cyclic.cloud/update", {
+            method: "POST",
+            body: JSON.stringify({
+                id: "messageInput",
+                code: cod,
+                event: "chat",
+                user: use,
+                message: mes
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        });
     </script>
 </head>
 <body>
