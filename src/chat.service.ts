@@ -7,7 +7,7 @@ import { createReadStream } from 'fs';
 
 @Injectable()
 export class ChatService {
-    chat(){
+    getChat(){
         return `<div><p>Hello! Please input a handle before typing an message!</p>
         <label for="userName">Handle: </label>
         <input type="text" id="userName" name="userName"><br>
@@ -37,5 +37,29 @@ export class ChatService {
                 })
             };
         </script><div>`;
+    };
+
+    getChatHeader(){
+        return `<head>
+        <meta charset="utf-8" />
+        <title>Chat</title>
+        <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+        <script>
+          var pusher = new Pusher('cefecd31795a4e419288', {
+            cluster: 'eu'
+          });
+    
+          var channel = pusher.subscribe('my-channel');
+          channel.bind('chat', function(data) {
+            var history = document.getElementById("chatDiv").innerHTML;
+            var newLine = "<br>" + data.user + ":";
+            for (let i = newLine.length; i < 40; i++){
+              newLine = newLine + "&nbsp;";
+            }
+            history = history + newLine + data.message;
+            document.getElementById("chatDiv").innerHTML = history;
+          });
+        </script>
+      </head>`;
     }
  }
