@@ -11,8 +11,8 @@
         var url = window.location.href;
         var urlArray = url.split('/');
         var cod = urlArray[urlArray.length - 2];
-        var channelChat = pusher.subscribe(cod);
-        channelChat.bind('chat', function(data) {
+        var channel = pusher.subscribe(cod);
+        channel.bind('chat', function(data) {
             var history = document.getElementById("chatDiv").innerHTML;
             var newLine = "<br>" + data.user + ":&nbsp;&nbsp;" + data.message;
             history = history + newLine;
