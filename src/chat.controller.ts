@@ -10,9 +10,8 @@ export class ChatController {
   constructor(private readonly appService: ChatService) {}
 
     @Get(':room')
+    @Render('chat')
     getChat(@Param() params: any) {
-      var html = `<!DOCTYPE html><html>`;
-      html = html + this.appService.getChatHeader() + this.appService.getChat();
-      return html;
+      return { room: params.room};
   }
 }
